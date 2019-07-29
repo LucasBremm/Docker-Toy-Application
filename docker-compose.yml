@@ -1,0 +1,46 @@
+# docker-compose.yml
+
+version: "3.2"
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        expose: 
+            - "5672"        
+        ports: 
+            - "15672:15672"
+
+    usuario:
+        build: ./Usuario
+        tty: true
+        ports:
+            - "2000:2000"
+
+    front:
+        build: ./Front
+        restart: on-failure
+        depends_on:
+            - rabbitmq
+            - usuario
+        links:
+            - rabbitmq 
+        tty: true
+        ports:
+            - "3000:3000"
+
+    temperatura:
+        build: ./Temperatura
+        restart: on-failure
+        depends_on:
+            - front
+        tty: true
+        links:
+            - rabbitmq
+            
+    umidade:
+        build: ./Umidade
+        restart: on-failure
+        depends_on:
+            - front
+        tty: true
+        links:
+            - rabbitmq
