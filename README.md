@@ -1,10 +1,13 @@
+*Read in [English](README.en.md)*
+
 # Docker Toy Application
 
-Application made with python to test docker funcionalities, the idea is to have different containers communicating info. Two containers will simulate sensors creating random values of temperature and humidity, both publishing their values in rabbitmq container. Another container will be subscribed to rabbitmq and will save the publications. A user application can request publications on an given id, that is generated together with every value the sensors publish.
+Aplicativo feito com python para testar funcionalidades do docker, a ideia é ter diferentes containers comunicando informações. Dois containers simularão sensores que criam valores aleatórios de temperatura e umidade, ambos publicando seus valores em um contêiner de rabbitmq. Outro container será inscrito no rabbitmq e salvará as publicações. Um aplicativo de usuário pode solicitar publicações em um determinado ID, que é gerado junto com todos os valores que os sensores publicam.
 
-## Usage
+## Usando
 
-Its possible to test the application by just running ```bash docker-compose up ``` in the root folder. Or initialize every docker container by the docker file in each folder. After starting the containers, the root folder has a user.py archive, which is the applicationused to consult values by the id. 
+É possivel testar a aplicação rodando o comando ```bash docker-compose up ``` na pasta raiz. Ou inicializar cada container individualmente em sua pasta especifica. Depois de iniciar os contêineres, a pasta raiz tem um arquivo user.py, que é o aplicativo usado para consultar os valores pelo id. 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Contribuindo
+
+Pull requests são bem-vindos. Para mudanças importantes, por favor, abra um issue primeiro para discutir o que você gostaria de mudar.
